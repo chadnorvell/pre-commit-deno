@@ -1,0 +1,27 @@
+default_language_version:
+  python: python3.11
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+      - id: check-merge-conflict
+      - id: check-yaml
+
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.28.2
+    hooks:
+      - id: check-jsonschema
+        name: "validate pre-commit config"
+        files: ^.*\.pre-commit-config\.yaml$
+        types: [yaml]
+        args: ["--schemafile", "https://json.schemastore.org/pre-commit-config.json"]
+
+      - id: check-jsonschema
+        name: "validate pre-commit hooks"
+        files: ^.*\.pre-commit-hooks\.yaml$
+        types: [yaml]
+        args: ["--schemafile", "https://json.schemastore.org/pre-commit-hooks.json"]

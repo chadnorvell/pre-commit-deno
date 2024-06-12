@@ -1,0 +1,17 @@
+- id: deno-fmt
+  name: 'deno fmt'
+  files: "^.*\\.ts$"
+  language: system
+  entry: deno fmt --check
+
+- id: deno-fmt-fix
+  name: 'deno fmt +fix'
+  files: "^.*\\.ts$"
+  language: system
+  entry: deno fmt
+
+- id: deno-lint
+  name: 'deno lint'
+  files: "^.*\\.ts$"
+  language: system
+  entry: deno lint
